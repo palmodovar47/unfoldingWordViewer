@@ -1,0 +1,5 @@
+.small-height {
+  max-height: 16em;
+  overflow-y: scroll;
+}
+

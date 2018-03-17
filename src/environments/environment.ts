@@ -4,5 +4,10 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  urls: {
+    langTranslationURL: 'http://localhost:3000/unfoldingWord/api/langNames',
+    catalogUrl: 'http://localhost:3000/unfoldingWord/api/catalog',
+    bookUrl: 'http://localhost:3000/unfoldingWord/api/book/'
+  }
 };

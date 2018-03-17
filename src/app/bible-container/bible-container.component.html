@@ -1,0 +1,12 @@
+<div>
+  <div class="bible-card">
+      <app-bible-selector
+      [chapters]="ufsmBook.chapters"
+      [options]="options"
+      (bookSearch)="bookSearch($event)"></app-bible-selector>
+      <br>
+      <app-bible-view [chapters]="ufsmBook.chapters"></app-bible-view>
+  </div>
+</div>
+
+<!-- *ngIf="hovering" -->

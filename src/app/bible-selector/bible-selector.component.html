@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="btn-group d-flex justify-content-center">
+
+    <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+      <button class="btn btn-outline-info" ngbDropdownToggle>{{selectors.fullLangName}} <span class="oi oi-audio-spectrum"></span></button>
+      <div class="dropdown-menu small-height" ngbDropdownMenu>
+        <button class="dropdown-item" *ngFor="let lang of options.fullLangNames" (click)="this.setLang(lang)">{{lang}}</button>
+      </div>
+
+    </div>
+    <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+      <button class="btn btn-outline-info" ngbDropdownToggle>{{selectors.bibleVersion}} <span class="oi oi-book"></span></button>
+      <div class="dropdown-menu small-height" ngbDropdownMenu>
+        <button class="dropdown-item" *ngFor="let bibleVersion of options.getBibleVersions(selectors.lang)" (click)="this.setBibleVersion(bibleVersion)">{{bibleVersion}}</button>
+      </div>
+    </div>
+
+    <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+      <button class="btn btn-outline-info" ngbDropdownToggle><b>{{selectors.book}}</b> <span class="oi oi-script"></span></button>
+      <div class="dropdown-menu small-height" ngbDropdownMenu>
+        <button class="dropdown-item" *ngFor="let book of options.getBooks(selectors.lang, selectors.bibleVersion)" (click)="this.setBook(book)">{{book}}</button>
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-outline-primary" (click)="fireBookSearch()">Search <span class="oi oi-magnifying-glass"></span></button>
+  </div>
+
+  <div *ngIf="this.chapters.length" class="btn-group d-flex justify-content-center">
+
+    <button type="button" class="btn btn-outline-primary" (click)="previousChapter()" [disabled]="this.selectedChapterNum === '1'"><span class="oi oi-arrow-circle-left"></span></button>
+
+    <button type="button" class="btn btn-outline-primary" (click)="previousVerse()" [disabled]="this.selectedVerseNum === '1'"><span class="oi oi-arrow-left"></span></button>
+
+    <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+      <button class="btn btn-outline-info" ngbDropdownToggle><b>Chapter {{selectedChapterNum}}</b></button>
+      <div class="dropdown-menu small-height" ngbDropdownMenu>
+        <button class="dropdown-item" *ngFor="let chapter of chapterNumbers" (click)="this.changeChapter(chapter)">{{chapter}}</button>
+      </div>
+    </div>
+
+    <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+      <button class="btn btn-outline-info" ngbDropdownToggle><b>Verse {{selectedVerseNum}}</b></button>
+      <div class="dropdown-menu small-height" ngbDropdownMenu>
+        <button class="dropdown-item" *ngFor="let verse of verseNumbers" (click)="this.changeVerse(verse)">{{verse}}</button>
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-outline-primary" (click)="nextVerse()" [disabled]="this.selectedVerseNum === this.lastVerseNum"><span class="oi oi-arrow-right"></span></button>
+
+    <button type="button" class="btn btn-outline-primary" (click)="nextChapter()" [disabled]="this.selectedChapterNum === this.lastChapterNum"><span class="oi oi-arrow-circle-right"></span></button>
+
+  </div>
+</div>

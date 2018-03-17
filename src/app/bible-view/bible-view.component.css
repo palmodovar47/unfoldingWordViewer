@@ -1,0 +1,9 @@
+.bookText {
+  height: 700px;
+  overflow-y: scroll;
+}
+
+.chapterNum {
+  float: left;
+  clear: both;
+}

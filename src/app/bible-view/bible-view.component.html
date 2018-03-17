@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body bookText">
+      <div *ngFor="let chapter of chapters" id="{{chapter.id}}">
+        <div [class.bg-info]="chapter.selected">
+          <h3 class="chapterNum">{{ chapter.tag.number }}</h3>
+          <span [class.text-white]="verse.selected"
+           *ngFor="let verse of chapter.verses"
+           id="{{verse.id}}">
+            <sup><b>{{ verse.tag.number }}</b></sup>{{ verse.tag.text }}
+          </span>
+        </div>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
