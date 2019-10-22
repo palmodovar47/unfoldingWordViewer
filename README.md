@@ -1,5 +1,7 @@
 # Unfoldingwordviewer
 
+DEPRECATED: the upstream API that fuels the App is no longer online.
+
 This is a SPA that loads a catalog of different Bibles translated into many
     different languages for the user to choose from. The user can switch from
     chapter to chapter and verse to verse with the viewport auto scrolling along
